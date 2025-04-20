@@ -22,8 +22,7 @@
     "postcss": "^8.4.31",
     "tailwindcss": "^3.4.4"
   },
-    "homepage": "https://Poornimabatham.github.io//fullprojectmern",
-
+  "homepage": "https://Poornimabatham.github.io/fullprojectmer",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
