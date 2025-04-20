@@ -3,6 +3,8 @@ import Lottie from "lottie-react";
 import heroAnimation from "../assets/Animation - 1744906264499.json";
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
+import Carosel from "./Carosel";
+import { Link } from "react-router-dom";
 
 function MainContent() {
   const [showAnimation, setShowAnimation] = useState(false);
@@ -39,17 +41,29 @@ function MainContent() {
                 This is a beautiful hero section powered by Lottie animations
                 and Tailwind CSS.
               </p>
-              <button className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-blue-200">
-                Get Started
-              </button>
+              <Link to="/carosel">
+                <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">
+                  Get Started
+                </button>
+              </Link>
             </div>
           </div>
         </div>
       </div>
 
       {/* Sidebar placed AFTER main content */}
-      <div className=" bg-gray-100 mx-10 mt-10">
+      <div
+        className="bg-gray-100 border border-green-300 rounded-3xl mx-10 mt-10xddxdx
+"
+      >
         <Sidebar />
+      </div>
+
+      <div
+        className="bg-gray-100 border border-green-300 rounded-3xl my-7  mx-10 mt-10xddxdx
+"
+      >
+        <Carosel />
       </div>
     </>
   );

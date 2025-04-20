@@ -6,6 +6,7 @@ import Footer from "./Components/Footer";
 import Login from "./Components/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./Components/Signup";
+import Carosel from "./Components/Carosel";
 function App() {
   return (
     <>
@@ -22,8 +23,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />/
           <Route path="/Navbar" element={<Navbar />} />
           <Route path="/Main" element={<MainContent />} />
-          <Route path="/Main" element={<MainContent />} />
-
+          <Route path="/carosel" element={<Carosel />} />
         </Routes>
       </BrowserRouter>{" "}
     </>
