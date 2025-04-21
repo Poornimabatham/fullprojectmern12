@@ -20,6 +20,14 @@ mongoose
   .catch((err) => console.error("❌ MongoDB Connection Error:", err));
 
 app.use("/api/v1", userRoutes);
+app.use(express.static(path.join(__dirname, 'frontend/build')));
+
+// Add API routes here (if you have any)
+
+// Catch-all handler for any request not matching an API route
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+});
 
 const PORT = 3000;
 app.listen(PORT, () => {
