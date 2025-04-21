@@ -58,13 +58,6 @@ function MainContent() {
       >
         <Sidebar />
       </div>
-
-      <div
-        className="bg-gray-100 border border-green-300 rounded-3xl my-7  mx-10 mt-10xddxdx
-"
-      >
-        <Carosel />
-      </div>
     </>
   );
 }
