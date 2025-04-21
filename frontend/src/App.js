@@ -7,25 +7,19 @@ import Login from "./Components/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./Components/Signup";
 import Carosel from "./Components/Carosel";
+
 function App() {
   return (
     <>
-      {/* <html class="dark"> */}
-      {/* <body class="bg-white text-black dark:bg-gray-900 dark:text-white"> */}
-      {/* <Navbar />
-      <MainContent />
-      <Footer /> */}
-      {/* </body>
-      </html> */}
-      <BrowserRouter>
+      <BrowserRouter basename="/fullprojectmern12">
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />/
+          <Route path="/signup" element={<Signup />} />
           <Route path="/Navbar" element={<Navbar />} />
           <Route path="/Main" element={<MainContent />} />
           <Route path="/carosel" element={<Carosel />} />
         </Routes>
-      </BrowserRouter>{" "}
+      </BrowserRouter>
     </>
   );
 }
