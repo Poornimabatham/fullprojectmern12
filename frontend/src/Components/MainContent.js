@@ -6,6 +6,8 @@ import Navbar from "./Navbar";
 import Carosel from "./Carosel";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import SmallFooter from "./SmallFooter";
+import SmallHeroSection from "./SmallHeroSection";
 function MainContent() {
   const [showAnimation, setShowAnimation] = useState(false);
 
@@ -52,13 +54,18 @@ function MainContent() {
       </div>
 
       {/* Sidebar placed AFTER main content */}
-      <div
-        className="bg-gray-100 border border-green-300 rounded-3xl mx-10 mt-10xddxdx
-"
-      >
+      <div className="w-7/3 bg-gray-100 border border-green-300 rounded-3xl mx-7 mt-10">
         <Sidebar />
       </div>
-      <div><Footer title="Trending Products" /></div>
+      <div>
+        <SmallHeroSection />
+      </div>
+      <div
+        className="bg-gray-900
+"
+      >
+        <SmallFooter />
+      </div>
     </>
   );
 }
