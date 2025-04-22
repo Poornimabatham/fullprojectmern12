@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
-
+import Footer from "./Footer";
 const Carosel = () => {
   return (
     <>
@@ -74,6 +74,8 @@ const Carosel = () => {
           </div>
         </div>
       </div>
+            <div><Footer title="Trending carasol" /></div>
+      
     </>
   );
 };

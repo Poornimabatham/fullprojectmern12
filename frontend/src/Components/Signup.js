@@ -48,9 +48,11 @@ const Signup = () => {
       });
   };
   return (
-    <div className="min-h-screen grid place-items-center px-4 bg-gray-100 dark:bg-gray-900">
+    <div className="min-h-screen grid place-items-center px-4 bg-white-100 dark:bg-white-900">
       <form
-        className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-3xl"
+        className="bg-white p-8 rounded-lg shadow-lg w-full max-w-3xl"
+        style={{ boxShadow: '0 0 15px rgba(0, 0, 0, 0.2)' }} // Adjust 0.2 for opacity
+
         onSubmit={handleSubmit}
       >
         <div className="grid gap-6 mb-6 md:grid-cols-2">

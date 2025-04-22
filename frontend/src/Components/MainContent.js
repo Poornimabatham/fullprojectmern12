@@ -5,7 +5,7 @@ import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import Carosel from "./Carosel";
 import { Link } from "react-router-dom";
-
+import Footer from "./Footer";
 function MainContent() {
   const [showAnimation, setShowAnimation] = useState(false);
 
@@ -58,6 +58,7 @@ function MainContent() {
       >
         <Sidebar />
       </div>
+      <div><Footer title="Trending Products" /></div>
     </>
   );
 }
