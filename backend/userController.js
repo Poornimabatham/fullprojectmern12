@@ -2,6 +2,7 @@ const { validationResult } = require("express-validator");
 const { LoginUser, SignupUser } = require("./models/user"); // adjust path if needed
 const bcrypt = require("bcrypt");
 
+const {insertfeaturesSchema} = require("./models/Features");
 exports.loginUser = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -71,6 +72,49 @@ exports.SignupUser = async (req, res) => {
     });
   } catch (err) {
     console.error("Signup error:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+
+exports.insertfeaturesSchema = async (req, res) => {
+  const { FeaturesId, title, description, image, price } = req.body;
+
+  try {
+    const existing = await insertfeaturesSchema.findOne({ FeaturesId });
+    if (existing) {
+      return res.status(409).json({ message: "Feature already exists" });
+    }
+
+    const newFeature = new insertfeaturesSchema({
+      FeaturesId,
+      title,
+      description,
+      image,
+      price,
+    });
+
+    await newFeature.save();
+
+    res.status(200).json({
+      message: "Feature inserted successfully",
+      feature: newFeature,
+    });
+  } catch (err) {
+    console.error("Insert feature error:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+
+exports.getFeaturesById = async (req, res) => {
+  const { FeaturesId } = req.params;
+
+  try {
+    const features = await insertfeaturesSchema.find({ FeaturesId });
+    res.status(200).json(features);
+  } catch (err) {
+    console.error("Fetch feature error:", err);
     res.status(500).json({ error: "Internal server error" });
   }
 };

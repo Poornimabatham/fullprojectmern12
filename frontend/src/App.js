@@ -7,6 +7,7 @@ import Login from "./Components/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./Components/Signup";
 import Carosel from "./Components/Carosel";
+import Feautres from "./Components/Feautres";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
           <Route path="/Navbar" element={<Navbar />} />
           <Route path="/Main" element={<MainContent />} />
           <Route path="/carosel" element={<Carosel />} />
+          <Route path="/Feautres" element={<Feautres />} />
+
         </Routes>
       </BrowserRouter>
     </>

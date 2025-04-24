@@ -74,7 +74,7 @@ const Carosel = () => {
           </div>
         </div>
       </div>
-            <div><Footer title="Trending carasol" /></div>
+      <div><Footer title="Trending carasol" /></div>
       
     </>
   );
