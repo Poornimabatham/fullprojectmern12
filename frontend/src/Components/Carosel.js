@@ -1,8 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import axios from "axios"; // Assuming you'll use axios for API calls
+
 const Carosel = () => {
+  const [galleryData, setGalleryData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    // Example API call (replace with your API endpoint)
+    const fetchGalleryData = async () => {
+      try {
+        const response = await axios.get("https://dummyjson.com/products");
+        console.log(response.data.products);
+        setGalleryData(response.data.products); // Assuming response.data is an array
+      } catch (error) {
+        console.error("Error fetching gallery data:", error);
+      }
+    };
+
+    fetchGalleryData();
+  }, []);
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  // ✅ filter products by title or description
+
+  const filterData = galleryData.filter((item) =>
+    item.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
   return (
     <>
       {/* Navbar */}
@@ -50,32 +79,55 @@ const Carosel = () => {
           className="flex-1 ml-64 mt-10 p-7 overflow-y-auto"
           style={{ maxHeight: "calc(100vh - 80px)" }}
         >
-          <h2 className="text-3xl font-bold text-center mb-5"></h2>
+          <h2 className="text-3xl font-bold text-center mb-5">Gallery</h2>
+          {/* ✅ Search Input */}
+          <div className="flex justify-center mb-5">
+            <input
+              type="text"
+              placeholder="Search products..."
+              value={searchTerm}
+              onChange={handleSearch}
+              className="border-2 border-solid rounded p-2 w-1/2"
+            />
+          </div>
+
           <div className="grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
-            {/* First Gallery Item - Span 2 Columns */}
-            <div className="bg-gray-300 rounded-lg h-40 col-span-2"></div>
+            {filterData.length > 0 ? (
+              filterData.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white shadow-md rounded-lg overflow-hidden"
+                >
+                  <div className="flex md:flex-row flex-col gap-2 w-full">
+                    {/* Image */}
+                    <img
+                      src={item.images[0]}
+                      alt={item.title || "Gallery Item"}
+                      className="bg-white-200 w-full p-3 md:w-40 h-40 object-cover shadow-inner rounded-lg"
+                    />
 
-            {/* Second Gallery Item - Span 1 Column, Span 2 Rows */}
-            <div className="bg-gray-300 rounded-lg h-90 row-span-3"></div>
-
-            {/* Third Gallery Item - Span 1 Column */}
-            <div className="bg-gray-300 rounded-lg h-40"></div>
-
-            {/* Fourth Gallery Item - Span 1 Column */}
-            <div className="bg-gray-300 rounded-lg h-40"></div>
-
-            {/* Fifth Gallery Item - Span 1 Column */}
-            <div className="bg-gray-300 rounded-lg h-40"></div>
-
-            {/* Sixth Gallery Item - Span 1 Column */}
-            <div className="bg-gray-300 rounded-lg h-40 col-span-2"></div>
-
-            {/* Add more items as needed */}
+                    {/* Text Section */}
+                    <div className="flex flex-col justify-center w-full p-3 border-2 border-solid rounded-lg bg-blue-200 ">
+                      <h3 className="text-lg font-semibold mb-2 break-words">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-600 break-words">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <p className="text-center col-span-3">No products found....</p>
+            )}
           </div>
         </div>
       </div>
-            <div><Footer title="Trending carasol" /></div>
-      
+
+      <div>
+        <Footer title="Trending Carasol" />
+      </div>
     </>
   );
 };
