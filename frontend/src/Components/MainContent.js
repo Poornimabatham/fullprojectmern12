@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Lottie from "lottie-react";
 import heroAnimation from "../assets/Animation - 1744906264499.json";
+// import pro   from "../assets/"
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 import Carosel from "./Carosel";
@@ -26,16 +27,22 @@ function MainContent() {
       <div className="bg-white pt-20">
         {/* pt-20 to prevent navbar overlap */}
         <div className="flex flex-col">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 py-10">
+          <div className="max-w-7xl mx-auto flex  flex-col md:flex-row items-center justify-between px-7 py-10">
             {/* Left Side: Lottie Animation */}
             <div className="w-full md:w-1/2">
-              {showAnimation && (
+              {/* {showAnimation && (
                 <Lottie animationData={heroAnimation} loop={true} />
-              )}
+                https://mir-s3-cdn-cf.behance.net/project_modules/fs/7a1485146718441.62b50d2350c01.png
+              )} */}
+              <img
+                src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/7a1485146718441.62b50d2350c01.png"
+                alt="External Image"
+                className="rounded-xl border-4 border-gray-300"
+              />
             </div>
 
             {/* Right Side: Text Content */}
-            <div className="w-full md:w-1/2 text-black text-center md:text-left mt-10 md:mt-0">
+            <div className="w-full md:w-1/2 text-black text-center md:text-left mt-10  md:mx-7 md:mt-0">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
                 Welcome to Our App
               </h1>
