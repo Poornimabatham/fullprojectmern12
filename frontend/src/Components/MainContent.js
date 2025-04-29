@@ -9,8 +9,16 @@ import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import SmallFooter from "./SmallFooter";
 import SmallHeroSection from "./SmallHeroSection";
+import AOS from "aos"; // ✅ import AOS
+import "aos/dist/aos.css"; // ✅ import AOS styles
 function MainContent() {
   const [showAnimation, setShowAnimation] = useState(false);
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -29,7 +37,7 @@ function MainContent() {
         <div className="flex flex-col">
           <div className="max-w-7xl mx-auto flex  flex-col md:flex-row items-center justify-between px-7 py-10">
             {/* Left Side: Lottie Animation */}
-            <div className="w-full md:w-1/2">
+            <div className="w-full md:w-1/2 " data-aos="zoom-in-right">
               {/* {showAnimation && (
                 <Lottie animationData={heroAnimation} loop={true} />
                 https://mir-s3-cdn-cf.behance.net/project_modules/fs/7a1485146718441.62b50d2350c01.png
