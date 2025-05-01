@@ -76,7 +76,7 @@ function MainContent() {
         <SmallHeroSection />
       </div>
       <div
-        className="bg-gray-900
+        className="bg-gray-900 w-full
 "
       >
         <SmallFooter />

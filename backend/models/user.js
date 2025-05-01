@@ -57,12 +57,46 @@ const signupUserSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+const contantUserSchema = new mongoose.Schema(
+  {
+    fname: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    lname: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
+    },
+    queryies: {
+      type: String, // ⚠️ Corrected from lowercase "number"
+      required: true,
+      trim: true,
+    },
+
+    address: {
+      type: String,
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
+
 // ✅ Model definitions
 const LoginUser = mongoose.model("LoginUser", loginUserSchema);
 const SignupUser = mongoose.model("SignupUser", signupUserSchema);
+const ContactUser = mongoose.model("ContactUser", contantUserSchema);
 
 // ✅ Export models
 module.exports = {
   LoginUser,
   SignupUser,
+  ContactUser,
 };

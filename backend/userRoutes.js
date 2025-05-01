@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { body } = require("express-validator");
 
-const { SignupUser, loginUser } = require("./userController");
+const { SignupUser, loginUser, ContactUser } = require("./userController");
 
 // 👇 Login Route
 router.post(
@@ -31,4 +31,18 @@ router.post(
   SignupUser
 );
 
+router.post(
+  "/contact",
+  [
+    body("email").isEmail().withMessage("Valid email is required"),
+    body("fname").notEmpty().withMessage("firstname is required"),
+
+    body("lname").notEmpty().withMessage("lastname is required"),
+
+    body("queires").notEmpty().withMessage("number is required"),
+
+    body("address").notEmpty().withMessage("address is required"),
+  ],
+  ContactUser
+);
 module.exports = router;

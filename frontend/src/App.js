@@ -4,10 +4,11 @@ import Navbar from "./Components/Navbar";
 import MainContent from "./Components/MainContent";
 import Footer from "./Components/Footer";
 import Login from "./Components/Login";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Form } from "react-router-dom";
 import Signup from "./Components/Signup";
 import Carosel from "./Components/Carosel";
 import Practice from "./Components/Practice";
+import Forms from "./Components/Forms";
 
 function App() {
   return (
@@ -19,9 +20,10 @@ function App() {
           <Route path="/Navbar" element={<Navbar />} />
           <Route path="/Main" element={<MainContent />} />
           <Route path="/products" element={<Carosel />} />
+          <Route path="/Form" element={<Forms />} />
         </Routes>
       </BrowserRouter>
-      <Practice/>
+      {/* <Practice /> */}
     </>
   );
 }
