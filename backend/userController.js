@@ -13,11 +13,13 @@ exports.loginUser = async (req, res) => {
 
   try {
     const user = await SignupUser.findOne({ email }); // ✅ use findOne
-    if (!user) return res.status(401).json({ message: "Invalid credentials" });
+    if (!user) return res.status(401).json({ message: "Email not found" });
 
     const isMatch = await bcrypt.compare(password, user.password); // ✅ this now works
-    if (!isMatch)
-      return res.status(401).json({ message: "Invalid credentials" });
+    if (!isMatch){
+      return res.status(402).json({ message: "Invalid credentials" });
+
+    }
 
     res.status(200).json({
       message: "Login successful",

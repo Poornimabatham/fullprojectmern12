@@ -7,6 +7,7 @@ import Login from "./Components/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./Components/Signup";
 import Carosel from "./Components/Carosel";
+import Practice from "./Components/Practice";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/products" element={<Carosel />} />
         </Routes>
       </BrowserRouter>
+      <Practice/>
     </>
   );
 }

@@ -28,8 +28,11 @@ const Login = () => {
           alert("Login successful!");
           navigate("/Main"); // Use navigate function for redirection
           console.log("Login successful, response data:", res.data);
-        } else {
-          alert(`Login attempt returned status: ${res.status}`);
+        } else if(res.status === 401){
+          alert(`Login attempt on this Email not found: ${res.status}`);
+        }else if(res.status === 402){
+          alert(`Invalid credentials: ${res.status}`);
+
         }
       })
       .catch((err) => {

@@ -31,11 +31,15 @@ const Signup = () => {
       .then((res) => {
         console.log("Response Status:", res.status);
         if (res.status === 200) {
-          alert("Login successful!");
-          navigate("/Main"); // Use navigate function for redirection
+          alert("Signup successful!");
+          navigate("/"); // Use navigate function for redirection
           console.log("Login successful, response data:", res.data);
-        } else {
-          alert(`Login attempt returned status: ${res.status}`);
+        } else if(res.status == 400){
+          alert(`Passwords do not match: ${res.status}`);
+
+        }
+        else if(res.status == 409) {
+          alert(`User already exists: ${res.status}`);
         }
       })
       .catch((err) => {
