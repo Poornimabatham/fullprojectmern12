@@ -34,11 +34,9 @@ const Signup = () => {
           alert("Signup successful!");
           navigate("/"); // Use navigate function for redirection
           console.log("Login successful, response data:", res.data);
-        } else if(res.status == 400){
+        } else if (res.status == 400) {
           alert(`Passwords do not match: ${res.status}`);
-
-        }
-        else if(res.status == 409) {
+        } else if (res.status == 409) {
           alert(`User already exists: ${res.status}`);
         }
       })
@@ -55,8 +53,7 @@ const Signup = () => {
     <div className="min-h-screen grid place-items-center px-4 bg-white-100 dark:bg-white-900">
       <form
         className="bg-white p-8 rounded-lg shadow-lg w-full max-w-3xl"
-        style={{ boxShadow: '0 0 15px rgba(0, 0, 0, 0.2)' }} // Adjust 0.2 for opacity
-
+        style={{ boxShadow: "0 0 15px rgba(0, 0, 0, 0.2)" }} // Adjust 0.2 for opacity
         onSubmit={handleSubmit}
       >
         <div className="grid gap-6 mb-6 md:grid-cols-2">

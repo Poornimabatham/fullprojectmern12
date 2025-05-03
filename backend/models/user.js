@@ -72,14 +72,10 @@ const contantUserSchema = new mongoose.Schema(
     email: {
       type: String,
       required: true,
-      unique: true,
+      // unique: true,
       lowercase: true,
     },
-    queryies: {
-      type: String, // ⚠️ Corrected from lowercase "number"
-      required: true,
-      trim: true,
-    },
+    queries: { type: String, required: true }, // not 'queires'
 
     address: {
       type: String,

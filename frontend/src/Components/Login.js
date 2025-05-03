@@ -28,11 +28,10 @@ const Login = () => {
           alert("Login successful!");
           navigate("/Main"); // Use navigate function for redirection
           console.log("Login successful, response data:", res.data);
-        } else if(res.status === 401){
+        } else if (res.status === 401) {
           alert(`Login attempt on this Email not found: ${res.status}`);
-        }else if(res.status === 402){
+        } else if (res.status === 402) {
           alert(`Invalid credentials: ${res.status}`);
-
         }
       })
       .catch((err) => {
@@ -45,7 +44,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
+    <div className="flex items-center justify-center bg-gray-100">
       <form
         className="w-full max-w-sm bg-white p-8 rounded-md shadow-md"
         onSubmit={handleSubmit}

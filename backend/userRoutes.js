@@ -39,7 +39,7 @@ router.post(
 
     body("lname").notEmpty().withMessage("lastname is required"),
 
-    body("queires").notEmpty().withMessage("number is required"),
+    body("queries").notEmpty().withMessage("queires is required"),
 
     body("address").notEmpty().withMessage("address is required"),
   ],
